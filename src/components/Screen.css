@@ -1,5 +1,39 @@
 .menuBar {
-  background-color: blue;
-  height: 300px;
-  width: 300px;
+  background-color: beige;
+  width: 280px;
+  margin: 100px auto;
+  margin-bottom: 0;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+.menuList {
+  height: 50px;
+  margin: 0 auto;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  /* margin-left: -20px; */
+  background-color: brown;
+}
+li {
+  line-height: 1.5;
+  display: block;
+  font-size: 20px;
+  justify-content: flex-start;
+  position: relative;
+}
+li.active {
+  background-color: aqua;
+  width: 150px;
+  padding: 2.5px 10px;
+  background-image: url("../assets/menuRightIcon.svg");
+  background-repeat: no-repeat;
+  background-position: 100px;
+  border-radius: 4px;
+}
+.menuRight {
+  position: absolute;
+  left: 100px;
+  top: 8px;
 }
