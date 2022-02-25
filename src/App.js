@@ -2,18 +2,17 @@ import React, { useState } from "react";
 import Wheel from "./components/Wheel";
 import Screen from "./components/Screen";
 const Menubar = ["Settings", "Music", "Games", "Pictures"];
-// const Menubar = (
-//   <ul className="menuList">
-//     <li id="item1">Settings</li>
-//     <li id="item2">Music</li>
-//     <li id="item3">Games</li>
-//     <li id="item4">Pictures</li>
-//   </ul>
-// );
+const musicMenu = ["Youtube", "All Songs"];
+
 export default function App() {
   //callback function--prop to wheel
-  const [activeItem, setActiveItem] = useState(0);
+  const [activeItem, setActiveItem] = useState("");
   const [activeScreen, setActiveScreen] = useState("");
+  // const[musicMenuItem, setMusicMenuItem];
+  // const handleMusicMenuChange=(indexM)=>{
+  //   setMusicMenuItem(indexM)
+  // }
+
   const handleMenuChange = (index) => {
     setActiveItem(index);
   };
@@ -31,6 +30,7 @@ export default function App() {
         list={Menubar}
         handleItem={handleMenuChange}
         handleScreen={handleScreenChange}
+        // handleMusicScreen={handleMusicMenuChange}
       />
     </div>
   );

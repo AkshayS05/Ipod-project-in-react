@@ -1,36 +1,16 @@
 import React, { useState } from "react";
+import Settings from "./Settings";
+import Music from "./Music";
+import Game from "./Game";
+import Picture from "./Picture";
+
+//css
 import "./Screen.css";
 //icon
 import menuRightIcon from "../assets/menuRightIcon.svg";
+
 export default function Screen({ items, activeItem, activeScreen }) {
   const [selected, setSelected] = useState(null);
-  // const handleClick = (index) => {
-  //   setSelected(index);
-  // };
-
-  //   const rendredItems = items.map((item, index) => {
-  //     const active = index === selected ? "active" : "";
-  //     return (
-  //   <div key={item.id} id="menuItems" onClick={() => handleClick(index)}>
-  //     <div className={"menuList"} id="menuList">
-  //       <ul>
-  //         <li id="listItem" className={`${active}`}>
-  //           {item.name}
-  //         </li>
-  //       </ul>
-  //     </div>
-  //   </div>
-  // );
-  //   });
-
-  // using array
-  // const selectedScreen = items[activeItem];
-  // console.log(selectedScreen);
-  // function render screen-- condition to call new component
-  // rendere screen
-  // </menuBar>
-
-  // menubar omponent
   const renderedItems = items.map((item, index) => {
     const active = activeItem === index ? "active" : "";
     return (
@@ -41,9 +21,20 @@ export default function Screen({ items, activeItem, activeScreen }) {
       </div>
     );
   });
-  return activeScreen === "Settings" ? (
-    <div>Settings</div>
-  ) : (
-    <div className="menuBar">{renderedItems}</div>
+  const checkDisplayScreen = (activeScreen) => {
+    if (activeScreen === "Settings") {
+      return <Settings activeItem={activeItem} activeScreen={activeScreen} />;
+    } else if (activeScreen === "Music") {
+      return <Music />;
+    } else if (activeScreen === "Games") {
+      return <Game />;
+    } else if (activeScreen === "Pictures") {
+      return <Picture />;
+    }
+  };
+  return (
+    checkDisplayScreen(activeScreen) || (
+      <div className="menuBar">{renderedItems}</div>
+    )
   );
 }

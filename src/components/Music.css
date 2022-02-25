@@ -1,0 +1,16 @@
+.music img {
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+}
+.music {
+  width: 280px;
+  margin: 100px auto;
+  margin-bottom: 0;
+  height: 200px;
+  background-color: brown;
+}
+.back {
+  cursor: pointer;
+  margin-top: 150px;
+}

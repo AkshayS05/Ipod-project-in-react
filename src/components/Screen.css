@@ -37,3 +37,12 @@ li.active {
   left: 100px;
   top: 8px;
 }
+li.active {
+  background-color: aqua;
+  width: 150px;
+  padding: 2.5px 10px;
+  background-image: url("../assets/menuRightIcon.svg");
+  background-repeat: no-repeat;
+  background-position: 100px;
+  border-radius: 4px;
+}
