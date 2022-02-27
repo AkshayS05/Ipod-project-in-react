@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "./Wheel.css";
-import useWheel from "../hooks/useWheel";
+import { useTheme } from "../hooks/useTheme";
 
+import "./Wheel.css";
 import Screen from "./Screen";
 //importing zingtouch library
 import ZingTouch from "zingtouch";
@@ -14,48 +14,44 @@ import playIcon from "../assets/playIcon.svg";
 import pauseIcon from "../assets/pauseIcon.svg";
 import menuIcon from "../assets/menuIcon.svg";
 import pressButtonIcon from "../assets/pressButtonIcon.svg";
-export default function Wheel({
-  list,
-  handleItem,
-  handleScreen,
-  
-}) {
-  useWheel(list, handleItem);
 
-  // useEffect(() => {
-  //   //Using a layer on top of the entire page for "fat-finger" detection on mobile devices.
-  //   let currentAngle = 0;
-  //   let currentIndex = 3;
-  //   let touchArea = document.getElementById("wheel");
-  //   let myRegion = new ZingTouch.Region(touchArea);
-  //   myRegion.bind(touchArea, "rotate", function (e) {
-  //     let rotatable = document.getElementsByClassName("menuList");
-  //     currentAngle += e.detail.distanceFromLast;
+export default function Wheel({ list, handleItem, handleScreen }) {
+  const { color } = useTheme();
 
-  //     if (currentAngle > 15) {
-  //       if (currentIndex < 3) {
-  //         currentIndex += 1;
-  //       } else {
-  //         currentIndex = 0;
-  //       }
-  //       handleItem(currentIndex);
-  //       currentAngle = 0;
-  //     }
-  //     if (currentAngle < -15) {
-  //       if (currentIndex > 0) {
-  //         currentIndex -= 1;
-  //       } else {
-  //         currentIndex = 3;
-  //       }
-  //       currentAngle = 0;
-  //       handleItem(currentIndex);
-  //     }
-  //   });
-  // }, [handleItem]);
+  useEffect(() => {
+    //Using a layer on top of the entire page for "fat-finger" detection on mobile devices.
+    let currentAngle = 0;
+    let currentIndex = list.length - 1;
 
+    let touchArea = document.getElementById("wheel");
+    let myRegion = new ZingTouch.Region(touchArea);
+    myRegion.bind(touchArea, "rotate", function (e) {
+      let rotatable = document.getElementsByClassName("menuList");
+      currentAngle += e.detail.distanceFromLast;
+
+      if (currentAngle > 15) {
+        if (currentIndex < list.length - 1) {
+          currentIndex += 1;
+        } else {
+          currentIndex = 0;
+        }
+        handleItem(currentIndex);
+        currentAngle = 0;
+      }
+      if (currentAngle < -15) {
+        if (currentIndex > 0) {
+          currentIndex -= 1;
+        } else {
+          currentIndex = list.length - 1;
+        }
+        currentAngle = 0;
+        handleItem(currentIndex);
+      }
+    });
+  }, [list]);
   const wheelComponent = (
     <>
-      <div className="outerSurface">
+      <div className="outerSurface" style={{ backgroundColor: color }}>
         <div className="buttonControls" id="wheel">
           <div
             className="innerSurface"

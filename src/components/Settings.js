@@ -4,8 +4,6 @@ import "./Settings.css";
 //icons
 import settingsIcon from "../assets/settingsIcon.svg";
 import backIcon from "../assets/backIcon.svg";
-// import useWheel from "../hooks/useWheel";
-import Wheel from "./Wheel";
 export default function Settings(activeItem, activeScreen) {
   // const [active, setActive] = useState("");
   // // const [activeScreen, setActiveScreen] = useState("");
@@ -42,8 +40,8 @@ export default function Settings(activeItem, activeScreen) {
   //   }
   // };
   // showScreen();
-  console.log("in settings page", activeItem);
-  console.log("in settings page", activeScreen);
+  // console.log("in settings page", activeItem);
+  // console.log("in settings page", activeScreen);
   return (
     <div className="setting">
       <img src={settingsIcon} />

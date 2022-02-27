@@ -1,7 +1,7 @@
 .outerSurface {
   height: 200px;
   width: 300px;
-  background-color: gray;
+  /* background-color: gray; */
   margin: 0 auto;
   position: relative;
 }
