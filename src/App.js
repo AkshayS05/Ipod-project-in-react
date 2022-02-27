@@ -5,11 +5,12 @@ import Date from "./components/Time";
 //custom hook for changing theme
 import { useTheme } from "./hooks/useTheme";
 const Menubar = ["Settings", "Music", "Games", "Pictures"];
-const changeTheme = ["colorOne", "colorTwo", "white"];
+const changeTheme = ["Theme Firewatch", "Theme Crystal Blue", "Theme Delicate"];
 
 const musicMenu = ["Youtube", "All Songs"];
 const gamesMenu = ["Game1", "Game2"];
 const pictureMenu = ["Media", "All Pictures"];
+const poweroff = [];
 
 export default function App() {
   //callback function--prop to wheel
@@ -19,6 +20,7 @@ export default function App() {
   const [currentMenu, setCurrentMenu] = useState(Menubar);
   const [showMenu, setShowMenu] = useState(true);
   const [colorChange, setColorChange] = useState("red");
+  const [controlPower, setControlPower] = useState(true);
   // const [menuCheck, setMenuCheck] = useState(Menubar);
   const handleMenuChange = (index) => {
     setActiveItem(index);
@@ -26,9 +28,12 @@ export default function App() {
   // const handleColor = (col) => {
   //   setColorChange(col);
   // };
-  // const redirectScreen = () => {
-  //   setCurrentMenu(Menubar);
-  // };
+  const redirectScreen = () => {
+    setCurrentMenu(Menubar);
+  };
+  const PowerScreen = () => {
+    setControlPower(!controlPower);
+  };
 
   useEffect(() => {
     if (activeScreen === "Settings") {
@@ -44,15 +49,17 @@ export default function App() {
   const handleScreenChange = () => {
     setActiveScreen(currentMenu[activeItem]);
   };
-
+  const inactive = controlPower === true ? "inactive" : "";
   return (
     <div>
-      <div className="components">
+      <div className={`components ${inactive}`}>
         <Screen
           items={currentMenu}
           activeItem={activeItem}
           activeScreen={activeScreen}
           showMenu={showMenu}
+          redirect={redirectScreen}
+          controlPower={controlPower}
         />
       </div>
 
@@ -62,6 +69,8 @@ export default function App() {
           handleItem={handleMenuChange}
           handleScreen={handleScreenChange}
           color={colorChange}
+          redirect={redirectScreen}
+          Power={PowerScreen}
         />
       </div>
     </div>

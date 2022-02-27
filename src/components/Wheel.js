@@ -14,10 +14,22 @@ import playIcon from "../assets/playIcon.svg";
 import pauseIcon from "../assets/pauseIcon.svg";
 import menuIcon from "../assets/menuIcon.svg";
 import pressButtonIcon from "../assets/pressButtonIcon.svg";
+import powerIcon from "../assets/powerIcon.svg";
 
-export default function Wheel({ list, handleItem, handleScreen }) {
+export default function Wheel({
+  list,
+  handleItem,
+  handleScreen,
+  redirect,
+  Power,
+}) {
   const { color } = useTheme();
-
+  const handleShowMainMenu = () => {
+    redirect();
+  };
+  const PowerControl = () => {
+    Power();
+  };
   useEffect(() => {
     //Using a layer on top of the entire page for "fat-finger" detection on mobile devices.
     let currentAngle = 0;
@@ -51,7 +63,7 @@ export default function Wheel({ list, handleItem, handleScreen }) {
   }, [list]);
   const wheelComponent = (
     <>
-      <div className="outerSurface" style={{ backgroundColor: color }}>
+      <div className="outerSurface" style={{ backgroundImage: color }}>
         <div className="buttonControls" id="wheel">
           <div
             className="innerSurface"
@@ -61,7 +73,7 @@ export default function Wheel({ list, handleItem, handleScreen }) {
             <img src={pressButtonIcon} />
           </div>
           <div className="menuButton">
-            <img src={menuIcon} />
+            <img src={menuIcon} onClick={() => handleShowMainMenu()} />
           </div>
           <div className="leftButton">
             <img src={leftIcon} />
@@ -74,6 +86,9 @@ export default function Wheel({ list, handleItem, handleScreen }) {
           </div>
           <div className="pauseButton">
             <img src={pauseIcon} />
+          </div>
+          <div className="powerIcon">
+            <img src={powerIcon} onClick={() => PowerControl()} />
           </div>
         </div>
       </div>

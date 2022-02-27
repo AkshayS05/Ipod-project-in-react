@@ -15,7 +15,7 @@ const themeReducer = (state, action) => {
 export function ThemeProvider({ children }) {
   useReducer(themeReducer);
   const [state, dispatch] = useReducer(themeReducer, {
-    backgroundImage: "linear - gradient(red, yellow)",
+    color: "linear-gradient(180deg, #f0f2f0 0%, #000c40 100%",
   });
   //to change color
   const changeColor = (color) => {
