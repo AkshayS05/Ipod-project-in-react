@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Wheel.css";
+import useWheel from "../hooks/useWheel";
+
 import Screen from "./Screen";
 //importing zingtouch library
 import ZingTouch from "zingtouch";
@@ -16,71 +18,14 @@ export default function Wheel({
   list,
   handleItem,
   handleScreen,
-  handleMusicScreen,
+  
 }) {
-  // const menuChange=(elementId)=>{
-  // let currentAngle = 0;
-  // let currentIndex = 3;
-  // let touchArea = document.getElementById("wheel");
-  // let myRegion = new ZingTouch.Region(touchArea);
-  // myRegion.bind(touchArea, "rotate", function (e) {
-  //   let rotatable = document.getElementsByClassName(`elementId`);
-  //   currentAngle += e.detail.distanceFromLast;
-
-  //   if (currentAngle > 15) {
-  //     if (currentIndex < 3) {
-  //       currentIndex += 1;
-  //     } else {
-  //       currentIndex = 0;
-  //     }
-  //     handleItem(currentIndex);
-  //     currentAngle = 0;
-  //   }
-  //   if (currentAngle < -15) {
-  //     if (currentIndex > 0) {
-  //       currentIndex -= 1;
-  //     } else {
-  //       currentIndex = 3;
-  //     }
-  //     currentAngle = 0;
-  //     handleItem(currentIndex);
-  //   }
-  // }
-
-  useEffect(() => {
-    //Using a layer on top of the entire page for "fat-finger" detection on mobile devices.
-    let currentAngle = 0;
-    let currentIndex = 3;
-    let touchArea = document.getElementById("wheel");
-    let myRegion = new ZingTouch.Region(touchArea);
-    myRegion.bind(touchArea, "rotate", function (e) {
-      let rotatable = document.getElementsByClassName("menuList");
-      currentAngle += e.detail.distanceFromLast;
-
-      if (currentAngle > 15) {
-        if (currentIndex < 3) {
-          currentIndex += 1;
-        } else {
-          currentIndex = 0;
-        }
-        handleItem(currentIndex);
-        currentAngle = 0;
-      }
-      if (currentAngle < -15) {
-        if (currentIndex > 0) {
-          currentIndex -= 1;
-        } else {
-          currentIndex = 3;
-        }
-        currentAngle = 0;
-        handleItem(currentIndex);
-      }
-    });
-  }, [handleItem]);
+  useWheel(list, handleItem);
 
   // useEffect(() => {
+  //   //Using a layer on top of the entire page for "fat-finger" detection on mobile devices.
   //   let currentAngle = 0;
-  //   let currentIndex = 0;
+  //   let currentIndex = 3;
   //   let touchArea = document.getElementById("wheel");
   //   let myRegion = new ZingTouch.Region(touchArea);
   //   myRegion.bind(touchArea, "rotate", function (e) {
@@ -105,27 +50,9 @@ export default function Wheel({
   //       currentAngle = 0;
   //       handleItem(currentIndex);
   //     }
-  //     setOutput([
-  //       ["Gesture", "Rotate"],
-  //       ["angle", Math.floor(e.detail.angle) + "°"],
-  //       ["distanceFromOrigin", Math.floor(e.detail.distanceFromOrigin) + "°"],
-  //       ["distanceFromLast", Math.floor(e.detail.distanceFromLast) + "°"],
-  //     ]);
-
-  //     function setOutput(list) {
-  //       var outputStr = "> ";
-  //       for (var i = 0; i < list.length; i++) {
-  //         outputStr +=
-  //           list[i][0] +
-  //           ": " +
-  //           list[i][1] +
-  //           (i === list.length - 1 ? "" : " , ");
-  //       }
-  //       var output = document.getElementById("output");
-  //       output.innerHTML = outputStr;
-  //     }
   //   });
-  // }, [handleMusicScreen]);
+  // }, [handleItem]);
+
   const wheelComponent = (
     <>
       <div className="outerSurface">
@@ -154,7 +81,6 @@ export default function Wheel({
           </div>
         </div>
       </div>
-      <div id="output"> Interaction meta will output here.</div>
     </>
   );
 

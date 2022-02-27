@@ -1,0 +1,54 @@
+.outerSurface {
+  height: 200px;
+  width: 300px;
+  background-color: gray;
+  margin: 0 auto;
+  position: relative;
+}
+.buttonControls {
+  height: 200px;
+  width: 200px;
+  background-color: #fff;
+  border-radius: 50%;
+  margin: 0 auto;
+  cursor: pointer;
+}
+.leftButton {
+  position: absolute;
+  left: 60px;
+  top: 80px;
+}
+.rightButton {
+  position: absolute;
+  right: 60px;
+  top: 80px;
+}
+.playButton {
+  position: absolute;
+  left: 150px;
+  top: 170px;
+}
+.pauseButton {
+  position: absolute;
+  left: 130px;
+  top: 170px;
+}
+.menuButton {
+  position: absolute;
+  left: 135px;
+  top: 10px;
+}
+.innerSurface {
+  height: 100px;
+  width: 100px;
+  background-color: gray;
+  border-radius: 50%;
+  position: absolute;
+  top: 50px;
+  left: 100px;
+}
+.innerSurface img {
+  height: 100px;
+  width: 100px;
+  color: gray;
+}
