@@ -1,6 +1,6 @@
 import React from "react";
 import "./Time.css";
-export default function Time({ controlPower }) {
+export default function Time() {
   const now = new Date();
   const day = now.getDate();
   const month = now.toLocaleString("default", { month: "short" });
@@ -10,5 +10,5 @@ export default function Time({ controlPower }) {
   const min = now.getMinutes();
   const time = `${day},${month},${hour}:${min}`;
 
-  return controlPower && <div className="time">{time}</div>;
+  return <div className="time">{time}</div>;
 }

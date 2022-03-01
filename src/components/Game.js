@@ -6,23 +6,27 @@ import "./Game.css";
 //icons
 import gameIcon from "../assets/gameIcon.svg";
 import backIcon from "../assets/backIcon.svg";
-export default function Game(changeGame, activeItem, activeScreen) {
-  const gameChange = changeGame.map((theme, index) => {
-    const active = activeItem === index ? "active" : "";
-    return (
-      <div key={index}>
-        <ul className="menuList" id="colorList">
-          <li className={`colorItem ${active}`}>{theme}</li>
-        </ul>
-      </div>
-    );
-  });
+//images
+// import mario from "../public/img/marioImage.jpg";
+
+import { useTheme } from "../hooks/useTheme";
+export default function Game(
+  changeGame,
+  activeItem,
+  activeScreen,
+  showMenu,
+  redirect,
+  controlPower
+) {
+  const { color } = useTheme();
+
   return (
-    <div className="games">
+    <div className="games" style={{ backgroundImage: color }}>
       <img src={gameIcon} />
-      <div className="back">
-        <img src={backIcon} />
+      <div className="gameIcon">
+        <img src="/img/marioImage.jpg" />
       </div>
+      <button className="playBtn">Play Now</button>
     </div>
   );
 }
