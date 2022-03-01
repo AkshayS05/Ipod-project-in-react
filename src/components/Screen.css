@@ -24,7 +24,7 @@ li {
   position: relative;
   padding: 5px;
 }
-li.active {
+/* li.active {
   background-color: aqua;
   width: 150px;
   padding: 2.5px 10px;
@@ -32,7 +32,7 @@ li.active {
   background-repeat: no-repeat;
   background-position: 100px;
   border-radius: 4px;
-}
+} */
 .menuRight {
   position: absolute;
   left: 100px;
@@ -47,11 +47,11 @@ li.active {
   background-position: 9.5rem;
   border-radius: 4px;
 }
-.inActive {
+/* .inActive {
   transition: all 2s ease-out;
   opacity: 0;
 }
 .inActive::before {
   content: "POWERING OFF!";
   background: aliceblue;
-}
+} */

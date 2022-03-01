@@ -5,15 +5,6 @@ import "./Picture.css";
 //icon
 import pictureIcon from "../assets/pictureIcon.svg";
 import backIcon from "../assets/backIcon.svg";
-//images
-// import image1 from "../../public/img/image1.jpg";
-// import image2 from "../../public/img/image2.jpg";
-// import image3 from "../../public/img/image3.jpg";
-// import image4 from "../../public/img/image4.jpg";
-// import image5 from "../../public/img/image5.jpg";
-// import image6 from "../../public/img/image6.jpg";
-// import image7 from "../../public/img/image7.jpg";
-// import image8 from "../../public/img/image8.jpg";
 
 export default function Picture() {
   const [cards, setCards] = useState([]);

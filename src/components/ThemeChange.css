@@ -1,0 +1,30 @@
+.setting img {
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+}
+.setting {
+  width: 18.75rem;
+  margin: 100px auto;
+  margin-bottom: 0;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+li {
+  line-height: 1.2;
+  display: block;
+  font-size: 20px;
+  justify-content: flex-start;
+  position: relative;
+  padding: 5px;
+}
+li.active {
+  background-color: rgba(33, 33, 34, 0.171);
+  width: 150px;
+  padding: 2.5px 10px;
+  background-image: url("../assets/menuRightIcon.svg");
+  background-repeat: no-repeat;
+  background-position: 9.5rem;
+  border-radius: 4px;
+}
