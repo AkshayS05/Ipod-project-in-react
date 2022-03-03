@@ -12,7 +12,6 @@ import PowerOff from "./PowerOff";
 import "./ThemeChange.css";
 //icons
 import settingsIcon from "../assets/settingsIcon.svg";
-import backIcon from "../assets/backIcon.svg";
 export default function Settings({
   items,
   activeItem,
@@ -29,10 +28,8 @@ export default function Settings({
     "linear-gradient(180deg, #444444 0%, #666 100%)",
   ];
   const handleColorChange = () => {
-    console.log("Reaching here though");
     if (activeScreen === "Theme Firewatch") {
       changeColor(changeThemes[0]);
-      console.log("Also after reaching here");
     }
     if (activeScreen === "Theme Crystal Blue") {
       changeColor(changeThemes[1]);
@@ -46,8 +43,6 @@ export default function Settings({
 
     redirect();
   };
-  console.log(activeScreen);
-  console.log("active Screen check", activeScreen.includes("Theme"));
   useEffect(() => {
     if (activeScreen) {
       if (activeScreen.includes("Theme")) {
