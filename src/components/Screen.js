@@ -40,7 +40,7 @@ export default function Screen({
 
   /////////////////////////
   //Display Theme
-  if (activeScreen.includes("Theme")) {
+  if (activeScreen && activeScreen.includes("Theme")) {
     return (
       <ThemeChange
         activeItem={activeItem}
