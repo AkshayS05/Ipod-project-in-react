@@ -46,7 +46,6 @@ export default function Settings({
   useEffect(() => {
     if (activeScreen) {
       if (activeScreen.includes("Theme")) {
-        console.log("Inside useEffect");
         handleColorChange();
       }
     }
