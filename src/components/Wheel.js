@@ -68,12 +68,21 @@ export default function Wheel({
           <div
             className="innerSurface"
             onClick={() => handleScreen()}
+            onTouchStart={() => handleScreen()}
             id="menu"
           >
-            <img src={pressButtonIcon} />
+            <img
+              className="pressBtnClass"
+              src={pressButtonIcon}
+              // onClick={() => handleScreen()}
+            />
           </div>
           <div className="menuButton">
-            <img src={menuIcon} onClick={() => handleShowMainMenu()} />
+            <img
+              src={menuIcon}
+              onClick={() => handleShowMainMenu()}
+              onTouchStart={() => handleShowMainMenu()}
+            />
           </div>
           <div className="leftButton">
             <img src={leftIcon} />
@@ -88,7 +97,11 @@ export default function Wheel({
             <img src={pauseIcon} />
           </div>
           <div className="powerIcon">
-            <img src={powerIcon} onClick={() => PowerControl()} />
+            <img
+              src={powerIcon}
+              onClick={() => PowerControl()}
+              onTouchStart={() => PowerControl()}
+            />
           </div>
         </div>
       </div>
