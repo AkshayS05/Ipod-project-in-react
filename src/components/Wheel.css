@@ -49,11 +49,13 @@
   position: absolute;
   top: 50px;
   left: 100px;
+  cursor: pointer;
 }
 .innerSurface img {
   height: 100px;
   width: 100px;
   color: gray;
+  cursor: pointer;
 }
 .powerIcon {
   height: 20px;
