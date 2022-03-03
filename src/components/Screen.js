@@ -37,41 +37,10 @@ export default function Screen({
   });
   /////////////////////////////////////////////////////
   const { color } = useTheme();
-  // const changeThemes = [
-  //   "linear-gradient(90deg, #cb2d3e 0%, #ef4731 100%)",
-  //   "linear-gradient(90deg, #efd5ff 0%, #515ada 100%)",
-  //   "linear-gradient(180deg, #D3CCE3 0%, #E9E4F0 100%)",
-  //   "linear-gradient(180deg, #444444 0%, #666 100%)",
-  // ];
-  // const handleColorChange = () => {
-  //   if (activeScreen === "Theme Firewatch") {
-  //     changeColor(changeThemes[0]);
-  //   }
-  //   if (activeScreen === "Theme Crystal Blue") {
-  //     changeColor(changeThemes[1]);
-  //   }
-  //   if (activeScreen === "Theme Delicate") {
-  //     changeColor(changeThemes[2]);
-  //   }
-  //   if (activeScreen === "Theme Royal Black") {
-  //     changeColor(changeThemes[3]);
-  //   }
-  //   redirect();
-  // };
-  // useEffect(() => {
-  //   // if (activeScreen) {
-  //   //   if (activeScreen.includes("Theme")) {
-  //   //     handleColorChange();
-  //   //   }
-  //   if (activeScreen.includes("Change Display")) {
-  //     setActiveScreen();
-  //   }
-  // }, [activeScreen]);
+
   /////////////////////////
   //Display Theme
-  console.log("Active screen from screen", activeScreen);
   if (activeScreen.includes("Theme")) {
-    console.log("Yes it does");
     return (
       <ThemeChange
         activeItem={activeItem}

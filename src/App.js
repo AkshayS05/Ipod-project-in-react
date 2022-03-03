@@ -56,8 +56,7 @@ export default function App() {
       setCurrentMenu(musicMenu);
     }
   }, [activeScreen]);
-  console.log(activeScreen);
-  console.log(currentMenu);
+
   // when active item is clicked, this function will display the relevant menu on the basis of the activeIndex of the screen
   const handleScreenChange = () => {
     setActiveScreen(currentMenu[activeItem]);
