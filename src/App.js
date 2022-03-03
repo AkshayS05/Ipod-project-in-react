@@ -45,14 +45,6 @@ export default function App() {
       setCurrentMenu(Menubar);
     }
   };
-  // const settingUpSubMenu = (name) => {
-  //   if (name === "Change Display") {
-  //     // setActiveScreen(changeTheme);
-  //     setActiveScreen(changeTheme);
-  //     console.log(activeScreen);
-  //   }
-  // };
-  // displaying a screen depending upon the active screen set
   useEffect(() => {
     if (activeScreen === "Settings") {
       setCurrentMenu(changeTheme);
