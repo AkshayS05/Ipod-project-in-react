@@ -4,10 +4,8 @@ import React from "react";
 import "./Music.css";
 // icon
 import musicIcon from "../assets/musicIcon.svg";
-import backIcon from "../assets/backIcon.svg";
 
 export default function Music() {
- 
   return (
     <div className="music">
       <img src={musicIcon} />
